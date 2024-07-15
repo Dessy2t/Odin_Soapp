@@ -33,6 +33,7 @@
         <%=post.errors.full_messages_for(:keyword).join(" ,")%>
       </p>
     <%end%>
+    <%= form.file_field :images, multiple:true %>
   </div>
 
   <div>
