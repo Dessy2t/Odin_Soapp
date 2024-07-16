@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   }
 
   resource :users, only:[:show]
+  post 'users/:id/follow', to: "users#follow", as: "follow"
+  post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow"
+  post 'users/:id/accept', to: "users#accept", as: "accept"
+  post 'users/:id/decline', to: "users#decline", as "decline"
+  post 'users/:id/cancil', to: "users#cancel", as: "cancel"
 
   get 'home/about'
 
