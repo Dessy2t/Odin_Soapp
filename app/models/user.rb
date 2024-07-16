@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
          has_many :posts
 
+         has_many :comments
+
          before_create :randomize_id
          private
          def randomize_id
