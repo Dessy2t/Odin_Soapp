@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <%= link_to "Home", root_path, class:"navbar-brand" style:"margin-left: 20px;"%>
+<%= link_to "Home", root_path, class:"navbar-brand", style:"margin-left: 20px;"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +18,7 @@
            <%= link_to "Sign out", destroy_user_session_path, class:"nav_link", style:"border:none;"%>
           </li>
           <li class="nav-item">
-            <%= link_to "Edit Account">, edit_user_registration_path, class:"nav-link"
+            <%= link_to "Edit Account", edit_user_registration_path, class:"nav-link"%>
           </li>
         <% else %>
           <li class="nav-item">
@@ -27,5 +27,4 @@
         <% end %>
       </ul>
     </div>
-  <% end% >
 </nav>

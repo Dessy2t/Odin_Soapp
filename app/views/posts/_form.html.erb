@@ -25,12 +25,16 @@
   </div>
 
   <div>
-   <%invalid = post.errors.include?(:keyword)%>
+    <%= form.text_field :user_id, type: "hidden", value: current_user.id%>
+  </div>
+
+  <div>
+   <%invalid = post.errors.include?(:keywords)%>
     <%= form.label :keywords, style: "display: block" %>
     <%= form.text_field :keywords, class: "form-control" %>
     <% if invalid%>
       <p style="color:red">
-        <%=post.errors.full_messages_for(:keyword).join(" ,")%>
+        <%=post.errors.full_messages_for(:keywords).join(" ,")%>
       </p>
     <%end%>
     <%= form.file_field :images, multiple:true %>
