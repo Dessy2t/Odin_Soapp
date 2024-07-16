@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag("post")%>
 <p style="color: green"><%= notice %></p>
-<div id="posts" class="text-center">
-<div id="posts">
+<div id="post" class="text-center">
+<div id="post">
   <% @posts.each do |post| %>
     <%= render post %>
   <% end %>

@@ -1,5 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <%= link_to "Home", root_path, class:"navbar-brand", style:"margin-left: 20px;"%>
+
+    <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, style:"width: 50px; height: 50px;"%>
+          <% end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,6 +19,10 @@
           <%= link_to "About Page", new_post_path, class:"nav_link"%>
         </li>
         <% if user_signed_in? %>
+          <li class="nav-item">
+           <%= link_to "View my profile", current_user, class:"nav-link" %>
+          </li>
+
           <li class="nav-item">
            <%= link_to "Sign out", destroy_user_session_path, class:"nav_link", style:"border:none;"%>
           </li>
