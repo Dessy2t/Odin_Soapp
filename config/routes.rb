@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #get 'likes/create'
+  #get 'likes/destroy'
+  #get 'likes/like_params'
+  resources :like, only: [:create, :destroy]
   resources :comments
  
   
