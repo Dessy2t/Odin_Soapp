@@ -73,4 +73,5 @@ gem 'ransack'
 gem 'rails_admin'
 gem "cssbundling-rails"
 gem 'pagy'
+gem 'active_analytics'
 
