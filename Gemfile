@@ -69,3 +69,4 @@ end
 #My custom gems
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
+gem 'ransack'
