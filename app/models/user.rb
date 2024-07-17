@@ -12,7 +12,7 @@ class User < ApplicationRecord
          before_create :randomize_id
          
          def unfollow(user)
-          followable_relashionships.where(followable_id: user.id).destroy_all
+          followerable_relationships.where(followable_id: user.id).destroy_all
          end
          
          private
@@ -20,6 +20,11 @@ class User < ApplicationRecord
           begin
             self.id = SecureRandom.random_number(1_000_000_000)
           end while User.where(id: self.id).exists?
-            
           end
+
+                enum role: [:user, :admin]
+                after_initialize :set_default_role, :if => :new_record?
+                def set_default_role
+                  self.role ||= :admin 
+                end
 end

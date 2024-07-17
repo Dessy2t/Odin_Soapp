@@ -18,14 +18,26 @@
         <li class="nav-item">
         </li>
         <li class="nav-item">
-           <%= link_to "Upload Post", new_post_path, class:"nav-link"%>
+          <%= link_to "Upload Post", new_post_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
           <%= link_to "About Page", new_post_path, class:"nav_link"%>
         </li>
+          
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to "Admin Panel", rails_admin_path, class:"nav-link"%>
+          </li>
+        <% end %>
+
         <% if user_signed_in? %>
           <li class="nav-item">
            <%= link_to "View my profile", current_user, class:"nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Discover Posts", posts_discover_path, class:"nav-link"%>
           </li>
 
           <li class="nav-item">

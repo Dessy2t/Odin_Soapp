@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  #get 'likes/create'
-  #get 'likes/destroy'
-  #get 'likes/like_params'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   get 'profiles/index'
   resources :like, only: [:create, :destroy]
@@ -22,8 +20,8 @@ Rails.application.routes.draw do
   post 'users/:id/follow', to: "users#follow", as: "follow"
   post 'users/:id/unfollow', to: "users#unfollow", as: "unfollow"
   post 'users/:id/accept', to: "users#accept", as: "accept"
-  post 'users/:id/decline', to: "users#decline", as "decline"
-  post 'users/:id/cancil', to: "users#cancel", as: "cancel"
+  post 'users/:id/decline', to: "users#decline", as: "decline"
+  post 'users/:id/cancel', to: "users#cancel", as: "cancel"
 
   get 'home/about'
 
@@ -36,6 +34,6 @@ Rails.application.routes.draw do
   #get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
- root "posts#index" 
+ root 'posts#index' 
  
 end

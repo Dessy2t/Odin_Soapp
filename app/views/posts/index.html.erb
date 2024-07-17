@@ -1,27 +1,30 @@
 <%= stylesheet_link_tag("post")%>
 <% if user_signed_in? %>
+  <% if current_user.admin? %>
+    You are an admin
+  <% end %>  
   <% current_user.follow_requests.each do |request|%>
     <%= request.followerble.email %> Wants to follow you
     <%= button_to "Accept", accept_path(request.followerable) %>
-    <%= button_to "Decline", decline_path (request.followerable)%>
+    <%= button_to "Decline", decline_path(request.followerable)%>
   <% end %>
   Followers
   <% current_user.followers.each do |follower|%>
-    <p> <b> <%= link_to follower.email.follower%> </b> </p>
+    <p> <b> <%= link_to follower.email, follower%> </b> </p>
   <% end %>
   Following
-  <% current_user.followering.each do |following|%>
-    <p> <b> <%= link_to following.email.following%> </b> </p>
+  <% current_user.following.each do |following|%>
+    <p> <b> <%= link_to following.email, following%> </b> </p>
   <% end %>
 <% end %>
 
 <p style="color: green"><%= notice %></p>
-<div class="row>
-  <div id="post" class="text-center">
-    <% @posts.each do |post| %>
-      <%= render post %>
-    <% end %>
-  </div>
+<div> class="row
+  <div> id="posts" </div> 
+  <% @posts.each do |post| %>
+    <%#= render post %>
+  <% end %>
+  
 </div>
 
 
