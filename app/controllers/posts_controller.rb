@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
   end
 
+  def discover
+  @posts = post.all
+  end
+
+
   def mypost
     @post = Post.new
   end
